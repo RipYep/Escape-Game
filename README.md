@@ -9,9 +9,10 @@ Liste du matériel :
   - arduino
 
 ## Scénario de l'escape game
-Ils sont entrés par effraction dans la base spatiale, ils doivent retrouver le code qui permet de débloquer un coffre, où dans ce coffre, le CEO avait déposé tous ces post-it avec des mots de passe, numéros de comptes, des documents (il)légaux, des lingots d'or et le code de lancement de Arianne 6. Dans ces post-it, il y aura un login et mot de passe sur son compte. Dès que le coffre s'ouvre une alarme se déclenche et ils auront 2 minutes pour : 
-- Soit s'échapper, et selon le temps pris pour arriver jusque là, soit ils se font attraper s'ils ont pris trop de temps, soit ils arrivent à s'échapper.
-- Soit lancer la fusée
+Ils sont entrés par effraction dans la base spatiale, ils doivent retrouver le code qui permet de débloquer un coffre, où dans ce coffre, le CEO avait déposé tous ces post-it avec des mots de passe, numéros de comptes, des documents (il)légaux, des lingots d'or et le code de lancement de Arianne 6. Dans ces post-it, il y aura un login et mot de passe sur son compte. Dès que le coffre s'ouvre une alarme se déclenche et ils feront face à un choix : 
+- S'échapper, et selon le temps pris pour arriver jusque là, soit ils se font attraper s'ils ont pris trop de temps, soit ils arrivent à s'échapper.
+Ou bien :
+- Lancer la fusée.
 
 S'ils décident de lancer la fusée grâce au code de lancement trouvé dans le coffre, ils pourront lancer la fusée, qui sera lancée trop tôt, et fera sûrement **BOOM**. Ou pas.
 
