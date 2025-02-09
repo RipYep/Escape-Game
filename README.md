@@ -25,6 +25,7 @@ Une escape game adaptée pour les lycéens et collégiens lors de la Journée Po
 6. [Autres informations importantes](#autres-informations-importantes)
    - [Comment le code infrarouge est envoyé au PC ?](#comment-le-code-infrarouge-est-envoyé-au-pc)
    - [Comment le PC reçoit le code envoyé du Raspberry ?](#comment-le-pc-reçoit-le-code-envoyé-du-raspberry)
+   - [L'adresse escape-ceo-csg.fr n'existe pas !](#ladresse-escape-ceo-csgfr-nexiste-pas-)
    - [Comment le code C++ vérifie la validité du code ?](#comment-le-code-c-vérifie-la-validité-du-code)
 
 ---
@@ -142,6 +143,18 @@ sudo ir-keytable -c -w /etc/rc_keymaps/customRemote.toml
 
 ---
 
+## Solutions des challenges
+
+### Solution challenge 1
+...
+
+### Solution challenge 2
+Le code pour débloquer le coffre est l'année de l'attaque de Pearl Harbor en 1941. Une fois ce code entré, ils déverrouillent le coffre et doivent ensuite choisir entre fuir avec son contenu ou rester et lancer la fusée en se connectant au compte du CEO avec son identifiant de connexion.
+
+---
+
+## Autres informations importantes
+
 ### _*Comment le code infrarouge est envoyé au PC ?*_
 Lancer le programme `mqttServer.py` :
 ```bash
@@ -170,16 +183,4 @@ sudo sh -c 'echo "127.0.0.1 escape-ceo-csg.fr" >> /etc/hosts'
 ### *_Comment le code C++ vérifie la validité du code ?_*
 Le code C++ vérifie toutes les 4.5 secondes si le code est bon, et s'il est bon il ouvre le coffre, sinon il reste fermé.
 
-Cette ligne est nécessaire pour que le script BASH `launchRocket.sh` puisse ouvrir le navigateur sur cette adresse.  
-
----
-
-## Solutions des challenges
-
-### Solution challenge 1
-...
-
-### Solution challenge 2
-Le code pour débloquer le coffre est l'année de l'attaque de Pearl Harbor en 1941. Une fois ce code entré, ils déverrouillent le coffre et doivent ensuite choisir entre fuir avec son contenu ou rester et lancer la fusée en se connectant au compte du CEO avec son identifiant de connexion.
-
----
+Cette ligne est nécessaire pour que le script BASH `launchRocket.sh` puisse ouvrir le navigateur sur cette adresse.
