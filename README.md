@@ -34,7 +34,7 @@ Une escape game adaptée pour les lycéens et collégiens lors de la Journée Po
   - 1 Raspberry Pi
   - 1 Télécommande IR (Infrarouge)
   - 3 câbles mâle-femelle
-  - PC portable pour lancer le programme du coffre et serveur Flask
+  - PC pour lancer le programme du coffre et serveur Flask
   - arduino Wi-Fi
 
 ## Scénario de l'escape game
