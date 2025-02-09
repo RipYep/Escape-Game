@@ -131,6 +131,9 @@ L'utilisateur doit saisir un code, puis appuyer sur le bouton ***OK*** de la té
 
 **_Le fichier `codeIR.txt` est effacé toutes les 15 secondes. Ce délai est réinitialisé chaque fois qu'un nouveau code est enregistré dans les 15 secondes qui suivent le dernier enregistrement._**
 
+> [!NOTE]
+> Le serveur MQTT marche pas ? Sans doute dû aux adresses IP configurées en statique dans les codes `mqttClient.py` et `mqttServer.py`. Il faudra remplacer l'adresse IP dans ces 2 codes Python par l'adresse IP de votre Raspberry.
+
 ### *L'adresse **escape-ceo-csg.fr** n'existe pas !*
 Il est nécessaire de modifier le fichier `/etc/hosts` en y ajoutant la ligne suivante :
 ```bash
@@ -141,11 +144,6 @@ sudo sh -c 'echo "127.0.0.1 escape-ceo-csg.fr" >> /etc/hosts'
 Le code C++ vérifie toutes les 4.5 secondes si le code est bon, et s'il est bon il ouvre le coffre, sinon il reste fermé.
 
 Cette ligne est nécessaire pour que le script BASH `launchRocket.sh` puisse ouvrir le navigateur sur cette adresse.  
-
----
-
-> [!NOTE]
-> Le serveur MQTT marche pas ? Sans doute dû aux adresses IP configurées en statique dans les codes `mqttClient.py` et `mqttServer.py`. Il faudra remplacer l'adresse IP dans ces 2 codes Python par l'adresse IP de votre Raspberry.
 
 ---
 
