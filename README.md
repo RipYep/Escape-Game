@@ -5,7 +5,7 @@ Une escape game adaptée pour les lycéens et collégiens lors de la Journée Po
 ![téléchargement](https://github.com/user-attachments/assets/7ec4deea-47f4-4a91-ab36-93608a6b9645)
 
 Liste du matériel :
-  - 1 Raspberry Pi zéro
+  - 1 Raspberry Pi
   - 1 Télécommande IR (Infrarouge)
   - 3 câbles mâle-femelle
   - PC portable pour lancer le programme du coffre et serveur Flask
@@ -39,11 +39,28 @@ Ou bien :
 
 S'ils décident de ne pas fuir et de lancer la fusée avec le code de lancement, un autre script BASH sera exécuté par le biais du code C++. Ce script BASH va leur ouvrir le navigateur par défaut à l'adresse ***escape-ceo-csg.fr/ceo-account.html*** pour pouvoir se connecter au compte du CEO, et 0.5 secondes plus tard, on affiche le contenu du coffre en ouvrant *Files Manager* à un endroit "caché" du système Linux, où ils pourront consulté brièvement le contenu du coffre (ou pas) et lancer la fusée avec le compte du CEO.
 
-## Réponse challenge 1
+## Pré-requis pour que les challenges fonctionnent
 
-## Pré-requis pour que le challenge 2 fonctionne
+### Branchement du capteur infrarouge au Raspberry
+![image](https://github.com/user-attachments/assets/17acd429-4ad7-486b-b69a-875a381f2744)
 
-### Installation de Mosquitto (MQTT)
+---
+
+### Modification du fichier de configuration  
+
+Ensuite, on se rend dans le fichier `/boot/config.txt` avec la commande `sudo nano /boot/config.txt` pour décommenter la ligne suivante :  
+```ini
+dtoverlay=gpio-ir,gpio_pin=18
+```
+
+Sauvegarder après avoir modifier `CTRL + X, puis Y et ENTER`.
+
+Puis redémarrer le Raspberry :
+```bash
+sudo reboot
+```
+
+### Installation de Mosquitto (MQTT) sur le PC et Raspberry
 ```bash
 sudo apt update && sudo apt install -y mosquitto mosquitto-clients
 sudo systemctl enable mosquitto
@@ -58,12 +75,28 @@ source venv/bin/activate
 pip install evdev
 sudo apt update && sudo apt install -y python3 python3-pip
 ```
-### Mappage des touches de la télécommande
+
+### Mappage des touches de la télécommande infrarouge
 Dans un premier temps, il faut exécuter la commande `ir-keytable -t -p all`, puis appuyer sur les touches de la télécommande pour vérifier si le Raspberry Pi reçoit bien les signaux infrarouges.
 Une fois le protocole (necx) détecté, il suffit d’appuyer sur une touche, de noter son code hexadécimal, puis d'enregistrer le code correspondant à la touche appuyé dans **/etc/rc_keymaps/customRemote.toml**.
 
-Contenu du fichier **/etc/rc_keymaps/customRemote.toml** :
+Exemple contenu du fichier **/etc/rc_keymaps/customRemote.toml** :
+```toml
+[[protocols]]
+name = "nec"
 
+[[protocols.scancodes]]
+0x0001 = "1"
+0x0002 = "2"
+0x0003 = "3"
+0x0004 = "4"
+0x0005 = "5"
+0x0006 = "6"
+0x0007 = "7"
+0x0008 = "8"
+0x0009 = "9"
+0x0028 = "28"
+```
 
 Pour charger la configuration des touches de la télécommande :
 ```bash
@@ -80,5 +113,3 @@ Il est nécessaire de modifier le fichier /etc/hosts en y ajoutant la ligne suiv
 ```bash
 sudo sh -c 'echo "127.0.0.1 escape-ceo-csg.fr" >> /etc/hosts'
 ```
-
-
