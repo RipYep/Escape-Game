@@ -174,11 +174,12 @@ Cette ligne est nécessaire pour que le script BASH `launchRocket.sh` puisse ouv
 
 ---
 
-## Solution challenge 1
+## Solutions des challenges
 
----
+### Solution challenge 1
+...
 
-## Solution challenge 2
+### Solution challenge 2
 Le code pour débloquer le coffre est l'année de l'attaque de Pearl Harbor en 1941. Une fois ce code entré, ils déverrouillent le coffre et doivent ensuite choisir entre fuir avec son contenu ou rester et lancer la fusée en se connectant au compte du CEO avec son identifiant de connexion.
 
 ---
