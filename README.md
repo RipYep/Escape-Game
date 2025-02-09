@@ -41,12 +41,44 @@ S'ils décident de ne pas fuir et de lancer la fusée avec le code de lancement,
 
 ## Réponse challenge 1
 
-## Réponse challenge 2
+## Pré-requis pour que le challenge 2 fonctionne
+
+### Installation de Mosquitto (MQTT)
+```bash
+sudo apt update && sudo apt install -y mosquitto mosquitto-clients
+sudo systemctl enable mosquitto
+sudo systemctl start mosquitto
+```
+
+### Installation de ir-keytable, evdev, et python sur le Raspberry
+```bash
+sudo apt install -y ir-keytable python3 python3-pip python3-venv
+python3 -m venv venv
+source venv/bin/activate
+pip install evdev
+sudo apt update && sudo apt install -y python3 python3-pip
+```
+### Mappage des touches de la télécommande
+Dans un premier temps, il faut exécuter la commande `ir-keytable -t -p all`, puis appuyer sur les touches de la télécommande pour vérifier si le Raspberry Pi reçoit bien les signaux infrarouges.
+Une fois le protocole (necx) détecté, il suffit d’appuyer sur une touche, de noter son code hexadécimal, puis d'enregistrer le code correspondant à la touche appuyé dans **/etc/rc_keymaps/customRemote.toml**.
+
+Contenu du fichier **/etc/rc_keymaps/customRemote.toml** :
+
+
+Pour charger la configuration des touches de la télécommande :
+```bash
+sudo ir-keytable -c -w /etc/rc_keymaps/customRemote.toml
+```
 
 ### *Comment le code infrarouge est envoyé au PC ?*
-Un code python server.py sur le raspberry qui fait office de émetteur, lance ir-keytable et le serveur **Mosquitto**, et chaque ***touche numérique infrarouge*** détécter de la télécommande infrarouge, sera envoyé au PC. Ils devront taper un code puis appuyé sur **OK** sur la télécommande IR pour pouvoir "submit" le code infrarouge au PC, et surtout pour "notifier" le PC (le recépteur) d'enregistrer le code dans le fichier ***codeIR.txt*** pour que le code C++ puisse lire le fichier, et vérifier si le code est valide.
+Un script Python (`server.py`) s'exécute sur le Raspberry Pi, qui agit en tant qu'émetteur. Ce script lance le programme `ir-keytable` pour gérer les signaux infrarouges et démarre le serveur **Mosquitto** pour la communication MQTT. À chaque pression d'une ***touche numérique*** sur la télécommande infrarouge, le code correspondant est détecté par le Raspberry Pi et transmis au PC.
+
+L'utilisateur doit saisir un code, puis appuyer sur le bouton **OK** de la télécommande IR pour soumettre le code au PC. Ce geste sert à "notifier" le PC (le récepteur) d'enregistrer le code dans le fichier `codeIR.txt`, afin que le programme C++ puisse lire ce fichier et vérifier la validité du code.
 
 ### L'adresse escape-ceo-csg.fr n'existe pas !
 Il est nécessaire de modifier le fichier /etc/hosts en y ajoutant la ligne suivante :
 ```bash
 sudo sh -c 'echo "127.0.0.1 escape-ceo-csg.fr" >> /etc/hosts'
+```
+
+
