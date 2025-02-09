@@ -39,6 +39,7 @@ Ou bien :
 
 S'ils décident de ne pas fuir et de lancer la fusée avec le code de lancement, un autre script BASH sera exécuté par le biais du code C++. Ce script BASH va leur ouvrir le navigateur par défaut à l'adresse ***escape-ceo-csg.fr/ceo-account.html*** pour pouvoir se connecter au compte du CEO, et 0.5 secondes plus tard, on affiche le contenu du coffre en ouvrant *Files Manager* à un endroit "caché" du système Linux, où ils pourront consulté brièvement le contenu du coffre (ou pas) et lancer la fusée avec le compte du CEO.
 
+
 ## Pré-requis pour que les challenges fonctionnent
 
 ### Branchement du capteur infrarouge au Raspberry
@@ -53,7 +54,7 @@ Ensuite, on se rend dans le fichier `/boot/config.txt` avec la commande `sudo na
 dtoverlay=gpio-ir,gpio_pin=18
 ```
 
-Sauvegarder après avoir modifier `CTRL + X, puis Y et ENTER`.
+Sauvegarder après avoir modifier (`CTRL + X, puis Y et ENTER`).
 
 Puis redémarrer le Raspberry :
 ```bash
@@ -103,13 +104,21 @@ Pour charger la configuration des touches de la télécommande :
 sudo ir-keytable -c -w /etc/rc_keymaps/customRemote.toml
 ```
 
-### *Comment le code infrarouge est envoyé au PC ?*
+### _*Comment le code infrarouge est envoyé au PC ?*_
 Un script Python (`server.py`) s'exécute sur le Raspberry Pi, qui agit en tant qu'émetteur. Ce script lance le programme `ir-keytable` pour gérer les signaux infrarouges et démarre le serveur **Mosquitto** pour la communication MQTT. À chaque pression d'une ***touche numérique*** sur la télécommande infrarouge, le code correspondant est détecté par le Raspberry Pi et transmis au PC.
 
-L'utilisateur doit saisir un code, puis appuyer sur le bouton **OK** de la télécommande IR pour soumettre le code au PC. Ce geste sert à "notifier" le PC (le récepteur) d'enregistrer le code dans le fichier `codeIR.txt`, afin que le programme C++ puisse lire ce fichier et vérifier la validité du code.
+### *_Comment le PC reçoit le code envoyé du Raspberry ?_*
+Le PC enregistre les données car le script Python `mqttClient.py` est en cours d'exécution. L'utilisateur doit saisir un code, puis appuyer sur le bouton ***OK*** de la télécommande IR pour soumettre le code au PC. Ce geste sert à "notifier" le PC (le récepteur) qu'il doit enregistrer le code reçu jusqu'à présent dans le fichier `codeIR.txt` (Ce fichier est enregistré dans `./dungeon/`). Ce fichier sera ensuite utilisé par le programme C++ pour vérifier la validité du code.
 
-### L'adresse escape-ceo-csg.fr n'existe pas !
+**_Le fichier codeIR.txt est effacé toutes les 15 secondes. Ce délai est réinitialisé chaque fois qu'un nouveau code est enregistré dans les 15 secondes qui suivent le dernier enregistrement._**
+
+### *L'adresse **escape-ceo-csg.fr** n'existe pas !*
 Il est nécessaire de modifier le fichier /etc/hosts en y ajoutant la ligne suivante :
 ```bash
 sudo sh -c 'echo "127.0.0.1 escape-ceo-csg.fr" >> /etc/hosts'
 ```
+
+### *_Comment le code C++ vérifie la validité du code ?_*
+Le code C++ vérifie toutes les 4.5 secondes si le code est bon, et s'il est bon il ouvre le coffre, sinon il reste fermé.
+
+Cette ligne est nécessaire pour que le script BASH `launchRocket.sh` puisse ouvrir le navigateur sur cette adresse.
