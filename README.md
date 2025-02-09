@@ -50,8 +50,8 @@ Sinon, s'ils décidents de fuir, ils se feront attraper. Ils essayent de combrio
 S'ils décident de lancer la fusée grâce au code de lancement trouvé dans le coffre, ils pourront lancer la fusée, et partir avec tout le contenu du coffre.
 
 ---
-
-_Le CEO de l'entreprise est un passionné d'histoire, en particulier de la Seconde Guerre mondiale et de l'attaque de Pearl Harbor. Il a une collection précieuse d'objets historiques, dont un coffre-fort sécurisé par un code faisant hommage à cette évenement historique. 
+> [!IMPORTANT]
+> _Le CEO de l'entreprise est un passionné d'histoire, en particulier de la Seconde Guerre mondiale et de l'attaque de Pearl Harbor. Il a une collection précieuse d'objets historiques, dont un coffre-fort sécurisé par un code faisant hommage à cette évenement historique. 
 Le code du coffre est l'année de l'attaque de Pearl Harbor, soit 1941._
 
 ---
