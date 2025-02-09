@@ -7,8 +7,8 @@ Une escape game adaptée pour les lycéens et collégiens lors de la Journée Po
 ## Table des matières
 1. [Liste du matériel](#liste-du-matériel-)
 2. [Scénario de l'escape game](#scénario-de-lescape-game)
-   - [Ne pas fuir](#ne-pas-fuir)
    - [Fuir](#fuir)
+   - [Ne pas fuir](#ne-pas-fuir)
 3. [Challenges](#challenges)
    - [Challenge 1](#challenge-1)
    - [Challenge 2 : Infrarouge](#challenge-2--infrarouge)
