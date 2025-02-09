@@ -46,8 +46,6 @@ S'ils décident de ne pas fuir et de lancer la fusée avec le code de lancement,
 ### Branchement du capteur infrarouge au Raspberry
 ![image](https://github.com/user-attachments/assets/17acd429-4ad7-486b-b69a-875a381f2744)
 
----
-
 ### Modification du fichier de configuration  
 
 Ensuite, on se rend dans le fichier `/boot/config.txt` avec la commande `sudo nano /boot/config.txt` pour décommenter la ligne suivante :  
@@ -105,11 +103,21 @@ Pour charger la configuration des touches de la télécommande :
 sudo ir-keytable -c -w /etc/rc_keymaps/customRemote.toml
 ```
 
+---
+
 ### _*Comment le code infrarouge est envoyé au PC ?*_
-Un script Python (`mqttServer.py`) s'exécute sur le Raspberry Pi, qui agit en tant qu'émetteur. Ce script lance le programme `ir-keytable` pour gérer les signaux infrarouges et démarre le serveur **Mosquitto** pour la communication MQTT. À chaque pression d'une ***touche numérique*** sur la télécommande infrarouge, le code correspondant est détecté par le Raspberry Pi et transmis au PC.
+Lancer le programme `mqttServer.py` :
+```bash
+python3 mqttServer.py
+```
+Le script Python (`mqttServer.py`) agit en tant qu'émetteur. Ce script lance le programme `ir-keytable` pour gérer les signaux infrarouges et démarre le serveur **Mosquitto** pour la communication MQTT. À chaque pression d'une ***touche numérique*** sur la télécommande infrarouge, le Raspberry Pi détecte le code correspondant et publie ce code sur le topic `ir/commands` du broker MQTT. Le PC, abonné à ce topic, reçoit le code via MQTT.
 
 ### *_Comment le PC reçoit le code envoyé du Raspberry ?_*
-Le PC enregistre les données car le script Python `mqttClient.py` est en cours d'exécution. L'utilisateur doit saisir un code, puis appuyer sur le bouton ***OK*** de la télécommande IR pour soumettre le code au PC. Ce geste sert à "notifier" le PC (le récepteur) qu'il doit enregistrer le code reçu jusqu'à présent dans le fichier `codeIR.txt` (Ce fichier est enregistré dans `./dungeon/`). Ce fichier sera ensuite utilisé par le programme C++ pour vérifier la validité du code.
+Lancer le programme `mqttClient.py` :
+```bash
+python3 mqttClient.py
+```
+L'utilisateur doit saisir un code, puis appuyer sur le bouton ***OK*** de la télécommande IR pour soumettre le code au PC. Ce geste sert à "notifier" le PC (le récepteur) qu'il doit récupérer le code envoyé par le Raspberry Pi via le topic `ir/commands` sur le serveur MQTT, et enregistrer le code reçu jusqu'à présent dans le fichier `codeIR.txt` (Ce fichier est enregistré dans `./dungeon/`). Ce fichier sera ensuite utilisé par le programme C++ pour vérifier la validité du code.
 
 **_Le fichier `codeIR.txt` est effacé toutes les 15 secondes. Ce délai est réinitialisé chaque fois qu'un nouveau code est enregistré dans les 15 secondes qui suivent le dernier enregistrement._**
 
