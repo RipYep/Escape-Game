@@ -1,9 +1,6 @@
 # Escape-Game
 Une escape game adaptée pour les lycéens et collégiens lors de la Journée Porte Ouverte à l'Institut Universitaire Technologique de Kourou, en Guyane Française.
 
-![logouniv](https://github.com/user-attachments/assets/d22e83d5-4026-42f8-993f-aa8d3e3a919b)
-![téléchargement](https://github.com/user-attachments/assets/7ec4deea-47f4-4a91-ab36-93608a6b9645)
-
 Liste du matériel :
   - 1 Raspberry Pi
   - 1 Télécommande IR (Infrarouge)
