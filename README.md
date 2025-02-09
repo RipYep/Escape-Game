@@ -4,7 +4,32 @@ Une escape game adaptée pour les lycéens et collégiens lors de la Journée Po
 
 ---
 
-Liste du matériel :
+## Table des matières
+1. [Liste du matériel](#liste-du-matériel)
+2. [Scénario de l'escape game](#scénario-de-lescape-game)
+   - [Ne pas fuir](#ne-pas-fuir)
+   - [Fuir](#fuir)
+3. [Challenges](#challenges)
+   - [Challenge 1](#challenge-1)
+   - [Challenge 2 : Infrarouge](#challenge-2-infrarouge)
+   - [Suite challenge 2 pour conclure l'escape game](#suite-challenge-2-pour-conclure-lescape-game)
+4. [Pré-requis pour que les challenges fonctionnent](#pré-requis-pour-que-les-challenges-fonctionnent)
+   - [Branchement du capteur infrarouge au Raspberry](#branchement-du-capteur-infrarouge-au-raspberry)
+   - [Modification du fichier de configuration](#modification-du-fichier-de-configuration)
+   - [Installation de Mosquitto (MQTT) sur le PC et Raspberry](#installation-de-mosquitto-mqtt-sur-le-pc-et-raspberry)
+   - [Installation de ir-keytable, evdev, et python sur le Raspberry](#installation-de-ir-keytable-evdev-et-python-sur-le-raspberry)
+   - [Mappage des touches de la télécommande infrarouge](#mappage-des-touches-de-la-télécommande-infrarouge)
+5. [Solutions des challenges](#solutions-des-challenges)
+   - [Solution challenge 1](#solution-challenge-1)
+   - [Solution challenge 2](#solution-challenge-2)
+6. [Autres informations importantes](#autres-informations-importantes)
+   - [Comment le code infrarouge est envoyé au PC ?](#comment-le-code-infrarouge-est-envoyé-au-pc)
+   - [Comment le PC reçoit le code envoyé du Raspberry ?](#comment-le-pc-reçoit-le-code-envoyé-du-raspberry)
+   - [Comment le code C++ vérifie la validité du code ?](#comment-le-code-c-vérifie-la-validité-du-code)
+
+---
+
+## Liste du matériel :
   - 1 Raspberry Pi
   - 1 Télécommande IR (Infrarouge)
   - 3 câbles mâle-femelle
