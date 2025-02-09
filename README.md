@@ -53,6 +53,10 @@ S'ils décident de ne pas fuir et de lancer la fusée avec le code de lancement,
 ### Branchement du capteur infrarouge au Raspberry
 ![image](https://github.com/user-attachments/assets/17acd429-4ad7-486b-b69a-875a381f2744)
 
+> [!CAUTION]
+> Bien faire attention lors du branchement sur 3.3 V, et ne pas le mettre au PIN juste au-dessus, qui est 5 V car le **récepteur infrarouge iduino** risque de cramer.  
+> Assurez-vous également que le **PIN GPIO** est bien branché au **18**, sinon il sera nécessaire de le rectifier dans le fichier `/boot/config.txt`.
+
 ### Modification du fichier de configuration  
 
 Ensuite, on se rend dans le fichier `/boot/config.txt` avec la commande `sudo nano /boot/config.txt` pour décommenter la ligne suivante :  
@@ -136,10 +140,12 @@ sudo sh -c 'echo "127.0.0.1 escape-ceo-csg.fr" >> /etc/hosts'
 ### *_Comment le code C++ vérifie la validité du code ?_*
 Le code C++ vérifie toutes les 4.5 secondes si le code est bon, et s'il est bon il ouvre le coffre, sinon il reste fermé.
 
-Cette ligne est nécessaire pour que le script BASH `launchRocket.sh` puisse ouvrir le navigateur sur cette adresse.
+Cette ligne est nécessaire pour que le script BASH `launchRocket.sh` puisse ouvrir le navigateur sur cette adresse.  
 
-### *_Serveur MQTT marche pas ?_*
-Sans doute dû aux adresses IP configurées en statique dans les codes `mqttClient.py` et `mqttServer.py`. Il faudra remplacer l'adresse IP dans ces 2 codes Python par l'adresse IP de votre Raspberry.
+---
+
+> [!NOTE]
+> Le serveur MQTT marche pas ? Sans doute dû aux adresses IP configurées en statique dans les codes `mqttClient.py` et `mqttServer.py`. Il faudra remplacer l'adresse IP dans ces 2 codes Python par l'adresse IP de votre Raspberry.
 
 ---
 
