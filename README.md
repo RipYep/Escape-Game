@@ -5,7 +5,7 @@ Une escape game adaptée pour les lycéens et collégiens lors de la Journée Po
 ---
 
 ## Table des matières
-1. [Liste du matériel](#liste-du-matériel)
+1. [Liste du matériel](#liste-du-matériel-)
 2. [Scénario de l'escape game](#scénario-de-lescape-game)
    - [Ne pas fuir](#ne-pas-fuir)
    - [Fuir](#fuir)
@@ -56,13 +56,15 @@ Le code du coffre est l'année de l'attaque de Pearl Harbor, soit 1941._
 
 ---
 
-## Challenge 1
+## Challenges
 
+### Challenge 1
+...
 
-## Challenge 2 : Infrarouge
+### Challenge 2 : Infrarouge
 Avec la télécommande infrarouge, ils devront débloquer le coffre du CEO. Dans ce coffre ils trouveront le code de lancement de Ariane 6, l'identifiant et code du compte bancaire du CEO, login et mot de passe à son compte, une photo de famille, des documents (il)légaux, de l'or, et une liste de ses collaborateurs. Tout ce qu'il faut pour usurper le CEO (si nos participants/participantes se sentent... Malveillants/Malveillantes), ne serait-ce que pour quelques heures, voire quelques minutes/secondes. Largement suffisant pour causer des dégats conséquents à sa réputation, son entreprise, et notamment sa vie.
 
-## Suite challenge 2 pour conclure l'escape game
+### Suite challenge 2 pour conclure l'escape game
 Une fois le coffre du CEO ouvert, une alarme se déclenche et ils devront faire fasse à un choix :
 - Fuir. Mais ils se feront attraper car c'est un lieu hautement sécurisé. Ils ont réussi à rentrer mais n'arriveront jamais à s'échapper.
 
