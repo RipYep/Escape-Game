@@ -11,7 +11,7 @@ Une escape game adaptée pour les lycéens et collégiens lors de la Journée Po
    - [Fuir](#fuir)
 3. [Challenges](#challenges)
    - [Challenge 1](#challenge-1)
-   - [Challenge 2 : Infrarouge](#challenge-2-infrarouge)
+   - [Challenge 2 : Infrarouge](#challenge-2--infrarouge)
    - [Suite challenge 2 pour conclure l'escape game](#suite-challenge-2-pour-conclure-lescape-game)
 4. [Pré-requis pour que les challenges fonctionnent](#pré-requis-pour-que-les-challenges-fonctionnent)
    - [Branchement du capteur infrarouge au Raspberry](#branchement-du-capteur-infrarouge-au-raspberry)
@@ -56,7 +56,7 @@ Le code du coffre est l'année de l'attaque de Pearl Harbor, soit 1941._
 
 ---
 
-## Challenge 1 : ...
+## Challenge 1
 
 
 ## Challenge 2 : Infrarouge
