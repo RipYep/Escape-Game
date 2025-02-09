@@ -12,7 +12,7 @@ Liste du matériel :
   - arduino Wi-Fi
 
 ## Scénario de l'escape game
-Ils sont entrés par effraction dans la base spatiale, ils doivent retrouver le code qui permet de débloquer un coffre, où dans ce coffre, le CEO avait déposé tous ses post-it avec login et mots de passe à son compte de la base spatiale, numéros de comptes, des documents (il)légaux, des lingots d'or et le code de lancement de Ariane 6. Dès que le coffre s'ouvre une alarme se déclenche et ils feront face à un choix : 
+Ils sont entrés par effraction dans la base spatiale, ils doivent retrouver le code qui permet de débloquer un coffre, où dans ce coffre, le CEO avait déposé tous ses post-it avec login et mots de passe à son compte de la base spatiale, numéros de comptes, des documents (il)légaux, des lingots d'or et même le code de lancement de Ariane 6. Dès que le coffre s'ouvre une alarme se déclenche et ils feront face à un choix : 
 - Fuir avec le contenu du coffre.
 
 Ou bien :
@@ -23,6 +23,13 @@ S'ils décident de lancer la fusée grâce au code de lancement trouvé dans le 
 
 ### Fuir
 Sinon, s'ils décidents de fuir, ils se feront attraper. Ils essayent de combrioler une base spatiale... On reste réaliste, on n'est pas dans un film.
+
+---
+
+_Le CEO de l'entreprise est un passionné d'histoire, en particulier de la Seconde Guerre mondiale et de l'attaque de Pearl Harbor. Il a une collection précieuse d'objets historiques, dont un coffre-fort sécurisé par un code faisant hommage à cette évenement historique. 
+Le code du coffre est l'année de l'attaque de Pearl Harbor, soit 1941._
+
+---
 
 ## Challenge 1 : ...
 
@@ -116,7 +123,7 @@ Lancer le programme `mqttClient.py` :
 ```bash
 python3 mqttClient.py
 ```
-L'utilisateur doit saisir un code, puis appuyer sur le bouton ***OK*** de la télécommande IR pour soumettre le code au PC. Ce geste sert à "notifier" le PC (le récepteur) qu'il doit récupérer le code envoyé par le Raspberry Pi via le topic `ir/commands` sur le serveur MQTT, et enregistrer le code reçu jusqu'à présent dans le fichier `codeIR.txt` (Ce fichier est enregistré dans `./dungeon/`). Ce fichier sera ensuite utilisé par le programme C++ pour vérifier la validité du code.
+L'utilisateur doit saisir un code, puis appuyer sur le bouton ***OK*** de la télécommande IR pour soumettre le code au PC. Ce geste sert à "notifier" le PC (le récepteur) qu'il doit récupérer le code envoyé par le Raspberry Pi via le topic `ir/commands` sur le serveur MQTT, et enregistrer le code reçu jusqu'à présent dans le fichier `codeIR.txt` dans le répertoire `./safe-ceo/`. Ce fichier sera ensuite utilisé par le programme C++ pour vérifier la validité du code.
 
 **_Le fichier `codeIR.txt` est effacé toutes les 15 secondes. Ce délai est réinitialisé chaque fois qu'un nouveau code est enregistré dans les 15 secondes qui suivent le dernier enregistrement._**
 
@@ -133,3 +140,14 @@ Cette ligne est nécessaire pour que le script BASH `launchRocket.sh` puisse ouv
 
 ### *_Serveur MQTT marche pas ?_*
 Sans doute dû aux adresses IP configurées en statique dans les codes `mqttClient.py` et `mqttServer.py`. Il faudra remplacer l'adresse IP dans ces 2 codes Python par l'adresse IP de votre Raspberry.
+
+---
+
+## Solution challenge 1
+
+---
+
+## Solution challenge 2
+Le code pour débloquer le coffre est l'année de l'attaque de Pearl Harbor en 1941. Une fois ce code entré, ils déverrouillent le coffre et doivent ensuite choisir entre fuir avec son contenu ou rester et lancer la fusée en se connectant au compte du CEO avec son identifiant de connexion.
+
+---
