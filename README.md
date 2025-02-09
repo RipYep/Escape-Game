@@ -43,11 +43,11 @@ Ils sont entrés par effraction dans la base spatiale, ils doivent retrouver le 
 Ou bien :
 - Ne pas fuir, lancer la fusée, et partir avec le contenu du coffre.
 
-### Ne pas fuir
-S'ils décident de lancer la fusée grâce au code de lancement trouvé dans le coffre, ils pourront lancer la fusée, et partir avec tout le contenu du coffre.
-
 ### Fuir
 Sinon, s'ils décidents de fuir, ils se feront attraper. Ils essayent de combrioler une base spatiale... On reste réaliste, on n'est pas dans un film.
+
+### Ne pas fuir
+S'ils décident de lancer la fusée grâce au code de lancement trouvé dans le coffre, ils pourront lancer la fusée, et partir avec tout le contenu du coffre.
 
 ---
 
