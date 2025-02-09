@@ -23,10 +23,10 @@ Une escape game adaptée pour les lycéens et collégiens lors de la Journée Po
    - [Solution challenge 1](#solution-challenge-1)
    - [Solution challenge 2](#solution-challenge-2)
 6. [Autres informations importantes](#autres-informations-importantes)
-   - [Comment le code infrarouge est envoyé au PC ?](#comment-le-code-infrarouge-est-envoyé-au-pc)
-   - [Comment le PC reçoit le code envoyé du Raspberry ?](#comment-le-pc-reçoit-le-code-envoyé-du-raspberry)
+   - [Comment le code infrarouge est envoyé au PC ?](#comment-le-code-infrarouge-est-envoyé-au-pc-)
+   - [Comment le PC reçoit le code envoyé du Raspberry ?](#comment-le-pc-reçoit-le-code-envoyé-du-raspberry-)
    - [L'adresse escape-ceo-csg.fr n'existe pas !](#ladresse-escape-ceo-csgfr-nexiste-pas-)
-   - [Comment le code C++ vérifie la validité du code ?](#comment-le-code-c-vérifie-la-validité-du-code)
+   - [Comment le code C++ vérifie la validité du code ?](#comment-le-code-c-vérifie-la-validité-du-code-)
 
 ---
 
