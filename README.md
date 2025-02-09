@@ -37,11 +37,16 @@ Une fois le coffre du CEO ouvert, une alarme se déclenche et ils devront faire 
 Ou bien :
 - Se connecter sur le compte du CEO, et lancer Ariane 6.
 
-S'ils décident de ne pas fuir et de lancer la fusée avec le code de lancement, un autre script BASH sera exécuté par le biais du code C++. Ce script BASH va leur ouvrir le navigateur par défaut à l'adresse ***csg-ceo.fr/ceo-account.html*** pour pouvoir se connecter au compte du CEO, et 0.5 secondes plus tard, on affiche le contenu du coffre en ouvrant *Files Manager* à un endroit "caché" du système Linux, où ils pourront consulté brièvement le contenu du coffre (ou pas) et lancer la fusée avec le compte du CEO.
+S'ils décident de ne pas fuir et de lancer la fusée avec le code de lancement, un autre script BASH sera exécuté par le biais du code C++. Ce script BASH va leur ouvrir le navigateur par défaut à l'adresse ***escape-ceo-csg.fr/ceo-account.html*** pour pouvoir se connecter au compte du CEO, et 0.5 secondes plus tard, on affiche le contenu du coffre en ouvrant *Files Manager* à un endroit "caché" du système Linux, où ils pourront consulté brièvement le contenu du coffre (ou pas) et lancer la fusée avec le compte du CEO.
 
 ## Réponse challenge 1
 
 ## Réponse challenge 2
+
 ### *Comment le code infrarouge est envoyé au PC ?*
 Un code python server.py sur le raspberry qui fait office de émetteur, lance ir-keytable et le serveur **Mosquitto**, et chaque ***touche numérique infrarouge*** détécter de la télécommande infrarouge, sera envoyé au PC. Ils devront taper un code puis appuyé sur **OK** sur la télécommande IR pour pouvoir "submit" le code infrarouge au PC, et surtout pour "notifier" le PC (le recépteur) d'enregistrer le code dans le fichier ***codeIR.txt*** pour que le code C++ puisse lire le fichier, et vérifier si le code est valide.
 
+### L'adresse escape-ceo-csg.fr n'existe pas !
+Il est nécessaire de modifier le fichier /etc/hosts en y ajoutant la ligne suivante :
+```bash
+sudo sh -c 'echo "127.0.0.1 escape-ceo-csg.fr" >> /etc/hosts'
