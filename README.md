@@ -30,6 +30,7 @@ Une escape game adaptée pour les lycéens et collégiens lors de la Journée Po
    - [Comment lancer le programme C++ ?](#comment-lancer-le-programme-c-)
    - [Importer la base de donnée `escapegame` dans mariadb](#importer-la-base-de-donnée-escapegame-dans-mariadb)
    - [Mise en place de l'escape game avec le script `setup.sh`](#mise-en-place-de-lescape-game-avec-le-script-setupsh)
+   - [Qu'est-ce que le fichier `setup.sh` fait ?](#quest-ce-que-le-fichier-setupsh-fait-)
 7. [Problèmes rencontrés](#problèmes-rencontrés)
    - [Alarme avec les M5Stack](#alarme-avec-les-m5stack)
 ---
@@ -302,21 +303,62 @@ cat escapegame.sql | mariadb -u root -p
 ## Mise en place de l'escape game avec le script `setup.sh`
 
 ### *_Qu'est ce que le fichier `setup.sh` fait ?_*
-Il met en place l'escape game, en :
-   - Déplacant le repértoire web `escape-game` à l'endroit `/var/www/html/`
-   - Déplacant le repértoire CEO dans `/etc/CEO`
+
+Le fichier `setup.sh` permet de configurer l'escape game en effectuant les opérations suivantes :
+
+1. **Déplacement du répertoire web `escape-game`** :
+   - Déplace le répertoire `escape-game` dans le répertoire `/var/www/html/`, qui est le répertoire par défaut pour les fichiers web sur un serveur.
+   - Attribue les permissions nécessaires au répertoire `escape-game` pour qu'il puisse être correctement servi par le serveur web (permissions de lecture et d'exécution pour tout le monde, et écriture pour le propriétaire).
+   - Exemple de commande exécutée :
+     ```bash
+     sudo mv escape-game /var/www/html/
+     sudo chown -R www-data:www-data /var/www/html/escape-game
+     sudo chmod -R 755 /var/www/html/escape-game
+     ```
+
+2. **Déplacement du répertoire `CEO`** :
+   - Déplace le répertoire `CEO` dans `/etc/CEO/`, afin de centraliser les informations liées au compte CEO dans un répertoire système sécurisé.
+   - Attribue les droits nécessaires au répertoire `CEO` pour que l'utilisateur actuel puisse y accéder et modifier les fichiers (permissions de lecture et d'écriture pour le propriétaire, sans exécution).
+   - Exemple de commande exécutée :
+     ```bash
+     sudo mv CEO /etc/
+     sudo chown -R $USER:$USER /etc/CEO
+     sudo chmod -R 600 /etc/CEO
+     ```
+
+3. **Vérification des droits d'exécution** :
+   - Si le script est exécuté sans les droits root (en tant qu'utilisateur non privilégié), il affiche un message d'erreur et arrête l'exécution.
+   - Exemple de commande exécutée pour vérifier les droits :
+     ```bash
+     if [ "$(id -u)" -ne 0 ]; then
+         echo "Ce script doit être exécuté en tant que root. Utilise : sudo ./setup.sh"
+         exit 1
+     fi
+     ```
+
+4. **Configuration terminée** :
+   - Une fois les opérations effectuées, un message de confirmation est affiché pour indiquer que la configuration a été réalisée avec succès.
+
+### Exemple de sortie attendue :
+
+```bash
+Le répertoire 'escape-game' a été déplacé vers /var/www/html/ et les permissions ont été ajustées.
+Le répertoire 'CEO' a été déplacé vers /etc/CEO/ et appartient maintenant à [user] avec des droits de lecture et écriture.
+Configuration terminée avec succès !
+```
 
 > [!NOTE]
 > Pour ce qui est d'importer la base de données, il serait préférable que vous le fassiez soit en graphique depuis `phpmyadmin`, soit en ligne de commande, comme vu précédemment.
 
+### Lancer `setup.sh`
 Donner les drois d'exécutions au fichier BASH :
 ```bash
-chmod u+x setup.bash
+chmod +x setup.bash
 ```
 
 Lancer le fichier BASH
 ```bash
-./setup.sh
+sudo ./setup.sh
 ```
 
 ---
