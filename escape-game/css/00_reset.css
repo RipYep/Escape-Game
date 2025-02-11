@@ -1,0 +1,101 @@
+/*------------------------------------------------------------------------------
+	RESET : reset CSS
+------------------------------------------------------------------------------*/
+
+
+
+/*==============================
+	Layout
+==============================*/
+
+	/* All : margin, padding, border */
+	* {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		vertical-align: top;
+		box-sizing: border-box;
+		font-size: inherit;
+		font-weight: normal;
+		font-style: normal;
+		text-decoration: none;
+		text-align: left;
+		text-transform: none;
+		color: black;
+	}
+
+	/* Display */
+	/* article, aside, details, figcaption, figure,
+	footer, header, hgroup, menu, nav, section {
+		display: block;
+	} */
+
+
+
+/*==============================
+	Style
+==============================*/
+
+	/* Body */
+	body {
+		line-height: 1;
+	}
+
+	/* List */
+	ol, ul {
+		list-style: none;
+	}
+
+	/* Blockquote */
+	blockquote, q {
+		quotes: none;
+	}
+	blockquote:before, blockquote:after,
+	q:before, q:after {
+		content: '';
+		content: none;
+	}
+
+	/* Table */
+	table {
+		border-collapse: collapse;
+		border-spacing: 0;
+	}
+
+	/* Input */
+	input, textarea, select {
+		font-family: inherit;
+		font-size: inherit;
+	}
+
+
+
+/*==============================
+	Classes
+==============================*/
+
+
+
+/*==============================
+	Website dependant style
+==============================*/
+
+
+
+/*==============================
+	Responsive
+==============================*/
+
+
+
+/* Media query : mobile */
+@media (max-width: 600px) {
+
+}
+
+
+
+/* Media query : desktop */
+@media (min-width: 600px) {
+
+}

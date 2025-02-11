@@ -1,0 +1,82 @@
+/*------------------------------------------------------------------------------
+	MOBILE : prevent touch side effects
+------------------------------------------------------------------------------*/
+
+
+
+/*==============================
+	Layout
+==============================*/
+
+
+
+/*==============================
+	Style
+==============================*/
+
+  /* Prevent native touch events on Windows */
+  * {
+  	-ms-touch-action: none;
+  }
+
+	/* Prevent the callout on tap-hold and text selection */
+  * {
+  	-webkit-touch-callout: none;
+  	-webkit-user-select: none;
+  	-moz-user-select: none;
+  	-ms-user-select: none;
+  	user-select: none;
+  }
+
+	/* Prevent text resize on orientation change */
+  *{
+  	-webkit-text-size-adjust: none;
+  	-moz-text-size-adjust: none;
+  	-ms-text-size-adjust: none;
+  	-o-text-size-adjust: none;
+  	text-size-adjust: none;
+  }
+
+	/* Prevent elements to be highlighted on tap */
+  * {
+	   -webkit-tap-highlight-color: rgba(0,0,0,0);
+  }
+
+	/* Prevent outline border on button click */
+	*:focus {
+		outline: none;
+	}
+	*::-moz-focus-inner {
+		border: 0;
+	}
+
+
+/*==============================
+	Classes
+==============================*/
+
+
+
+/*==============================
+	Website dependant style
+==============================*/
+
+
+
+/*==============================
+	Responsive
+==============================*/
+
+
+
+/* Media query : mobile */
+@media (max-width: 600px) {
+
+}
+
+
+
+/* Media query : desktop */
+@media (min-width: 600px) {
+
+}

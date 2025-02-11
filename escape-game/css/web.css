@@ -1,0 +1,102 @@
+/*------------------------------------------------------------------------------
+	WEB : page design
+------------------------------------------------------------------------------*/
+
+
+
+/*==============================
+	Layout
+==============================*/
+
+/* Body & Wrapper */
+.wrapper {
+	min-height: 100vh;
+	max-width: 1200px;
+	margin: 0 auto 0 auto;
+	padding: 1px;
+}
+
+
+
+
+
+/*==============================
+	Style
+==============================*/
+
+/* Set font */
+* {
+	font-family: 'Ubuntu', 'Arial', 'Helvetica', 'Palatino', sans-serif;
+}
+
+/* Body & Wrapper */
+body {
+	background-color: #FBFBFB;
+}
+.wrapper {
+	background-color: #F6F6F6;
+	padding: 0 10px;
+}
+
+/* Article & List */
+article, ul {
+	margin: 10px 0;
+	padding: 10px;
+	background-color: #00000011;
+}
+
+
+
+
+
+/*==============================
+	Classes
+==============================*/
+
+/* Hidden */
+.hidden {
+  display: none;
+}
+
+.timer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	font-size: 24px;
+	padding: 10px;
+	background-color: rgba(0, 0, 0, 0.7);
+	color: white;
+	width: auto
+	z-index: 9999;
+}
+
+
+/*==============================
+	Responsive design
+==============================*/
+
+/* Media query : mobile */
+@media (max-width: 600px) {
+
+
+}
+
+
+
+/* Media query : tablet */
+@media (min-width: 600px) and (max-width: 1200px) {
+
+
+}
+
+
+
+/* Media query : laptop */
+@media (min-width: 1200px) {
+
+
+}
