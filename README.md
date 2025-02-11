@@ -1,5 +1,5 @@
 # Escape-Game
-Une escape game adaptée pour les lycéens et collégiens lors de la Journée Porte Ouverte à l'Institut Universitaire Technologique de Kourou, en Guyane Française.
+Une escape game adaptée pour les lycéens et collégiens lors de la Journée Porte Ouverte à l'Institut Universitaire Technologique de Kourou le 7 Février 2025, en Guyane Française.
 ![gf](https://github.com/user-attachments/assets/e04358d7-f799-4827-b65d-a7113efc2115)
 
 ---
