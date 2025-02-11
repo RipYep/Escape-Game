@@ -29,6 +29,9 @@ Une escape game adaptée pour les lycéens et collégiens lors de la Journée Po
    - [Comment le code C++ vérifie la validité du code ?](#comment-le-code-c-vérifie-la-validité-du-code-)
    - [Comment lancer le programme C++ ?](#comment-lancer-le-programme-c-)
    - [Importer la base de donnée `escapegame` dans mariadb](#importer-la-base-de-donnée-escapegame-dans-mariadb)
+   - [Mise en place de l'escape game avec le script `setup.sh`](#mise-en-place-de-lescape-game-avec-le-script-setupsh)
+7. [Problèmes rencontrés](#problèmes-rencontrés)
+   - [Alarme avec les M5Stack](#alarme-avec-les-m5stack)
 ---
 
 ## Liste du matériel :
@@ -289,8 +292,37 @@ Pour importer la base de donnée il suffit de taper la commande suivante dans le
 ```bash
 cat escapegame.sql | mariadb -u <username> -p
 ```
+
 Lit le fichier `escapegame.sql` et envoie son contenu à MariaDB, où il est exécuté en tant qu'utilisateur `<username>`, avec une demande de saisie du mot de passe.
-Remplacer `<username>` par le nom utilisateur créée dans votre base de donnée. Si c'est root alors :
+Remplacer `<username>` par le nom utilisateur créée dans votre base de donnée. Si c'est `root` alors :
 ```bash
 cat escapegame.sql | mariadb -u root -p
 ```
+
+## Mise en place de l'escape game avec le script `setup.sh`
+
+### *_Qu'est ce que le fichier `setup.sh` fait ?_*
+Il met en place l'escape game, en :
+   - Déplacant le repértoire web `escape-game` à l'endroit `/var/www/html/`
+   - Déplacant le repértoire CEO dans `/etc/CEO`
+
+> [!NOTE]
+> Pour ce qui est d'importer la base de données, il serait préférable que vous le fassiez soit en graphique depuis `phpmyadmin`, soit en ligne de commande, comme vu précédemment.
+
+Donner les drois d'exécutions au fichier BASH :
+```bash
+chmod u+x setup.bash
+```
+
+Lancer le fichier BASH
+```bash
+./setup.sh
+```
+
+---
+
+## Problèmes rencontrés
+
+### Alarme avec les M5Stack
+(Adrien) : Pour ma part j'ai dû passer un bon 3-4 h à essayé de faire fonctionner le buzzer sur le M5Stack Core 2. Donc le code de la doc du M5Stack ne marchait pas, non plus celui de `ChatGPT`, et pareille les codes qu'on trouve sur des forums...
+Donc après une matinée entière, j'ai abandonné vu que la librairie `M5` n'existait pas (???), mettre le M5 à jour non plus, pas fonctionné... Et idem si je mettais la librairie `m5stack`...
