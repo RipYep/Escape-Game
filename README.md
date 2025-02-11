@@ -269,3 +269,19 @@ Puis, il suffit simplement de faire :
 ./compile
 ```
 Pour lancer le programme C++.
+
+### Importer la base de donnée `escapegame` dans mariadb
+Il faudra d'abord importer la base de donnée pour pouvoir se connecter au compte du CEO, mais aussi pour vérifier le code de lancement
+
+> [!IMPORTANT]
+> Tout est en clair dans la base de donnée. Rien n'est hashé ou encrypté par une clé.
+
+Pour importer la base de donnée il suffit de taper la commande suivante dans le terminal, à l'endroit `escape-game/db/escapegame.sql`
+```bash
+cat escapegame.sql | mariadb -u <username> -p
+```
+Lit le fichier `escapegame.sql` et envoie son contenu à MariaDB, où il est exécuté en tant qu'utilisateur `<username>`, avec une demande de saisie du mot de passe.
+Remplacer `<username>` par le nom utilisateur créée dans votre base de donnée. Si c'est root alors :
+```bash
+cat escapegame.sql | mariadb -u root -p
+```
