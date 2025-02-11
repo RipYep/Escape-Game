@@ -75,15 +75,6 @@ Ou bien :
 
 S'ils décident de ne pas fuir et de lancer la fusée avec le code de lancement, un autre script BASH sera exécuté par le biais du code C++. Ce script BASH va leur ouvrir le navigateur par défaut à l'adresse `escape-ceo-csg.fr/ceo-account.html` pour pouvoir se connecter au compte du CEO, et 0.5 secondes plus tard, on affiche le contenu du coffre en ouvrant *Files Manager* à un endroit "caché" du système Linux, où ils pourront consulté brièvement le contenu du coffre et lancer la fusée avec le compte du CEO.
 
-Interface web pour se connecter à son compte :
-![image](https://github.com/user-attachments/assets/ddf20ca2-303d-4c44-876f-36292dca903b)
-
-Pour lancer la fusée avec le code de lancement :
-![image](https://github.com/user-attachments/assets/c5570035-c622-4953-bf38-d9c258bb0bcf)
-
-Animation de lancement de la fusée après avoir mis le bon code (Celui donné dans le fichier `code lancement ariane 6`)
-![image](https://github.com/user-attachments/assets/50fe0511-38f9-47f0-a487-4e45b8cccae6)
-
 ---
 
 ## Pré-requis pour que les challenges fonctionnent
@@ -160,6 +151,23 @@ sudo ir-keytable -c -w /etc/rc_keymaps/customRemote.toml
 
 ### Solution challenge 2
 Le code pour débloquer le coffre est l'année de l'attaque de Pearl Harbor en 1941. Une fois ce code entré, ils déverrouillent le coffre et doivent ensuite choisir entre fuir avec son contenu ou rester et lancer la fusée en se connectant au compte du CEO avec son identifiant de connexion.
+
+Lorsque le coffre est verrouillé, il s'affiche de cette manière.
+![image](https://github.com/user-attachments/assets/2cd858c7-c1ce-4223-b87f-196cc210baa4)
+
+Une fois le coffre déverrouillé, ils auront le choix entre s’enfuir ou rester pour lancer la fusée.
+![image](https://github.com/user-attachments/assets/b6a89a46-cc87-405c-9699-cecfec534830)
+
+S'ils décident de ne pas fuir, ils seront redirigés vers l'adresse escape-ceo-csg.fr et invités à se connecter au compte du CEO.
+
+Interface web pour se connecter à son compte :
+![image](https://github.com/user-attachments/assets/ddf20ca2-303d-4c44-876f-36292dca903b)
+
+Pour lancer la fusée avec le code de lancement (Celui donné dans le fichier `code lancement ariane 6`) :
+![image](https://github.com/user-attachments/assets/c5570035-c622-4953-bf38-d9c258bb0bcf)
+
+Animation de lancement de la fusée après avoir mis le bon code :
+![image](https://github.com/user-attachments/assets/50fe0511-38f9-47f0-a487-4e45b8cccae6)
 
 ---
 
