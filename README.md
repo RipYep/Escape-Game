@@ -27,7 +27,7 @@ Une escape game adaptée pour les lycéens et collégiens lors de la Journée Po
    - [Comment le PC reçoit le code envoyé du Raspberry ?](#comment-le-pc-reçoit-le-code-envoyé-du-raspberry-)
    - [L'adresse escape-ceo-csg.fr n'existe pas !](#ladresse-escape-ceo-csgfr-nexiste-pas-)
    - [Comment le code C++ vérifie la validité du code ?](#comment-le-code-c-vérifie-la-validité-du-code-)
-
+   - [Comment lancer le programme C++ ?](#comment-lancer-le-programme-c-)
 ---
 
 ## Liste du matériel :
@@ -73,6 +73,15 @@ Ou bien :
 - Se connecter sur le compte du CEO, et lancer Ariane 6.
 
 S'ils décident de ne pas fuir et de lancer la fusée avec le code de lancement, un autre script BASH sera exécuté par le biais du code C++. Ce script BASH va leur ouvrir le navigateur par défaut à l'adresse `escape-ceo-csg.fr/ceo-account.html` pour pouvoir se connecter au compte du CEO, et 0.5 secondes plus tard, on affiche le contenu du coffre en ouvrant *Files Manager* à un endroit "caché" du système Linux, où ils pourront consulté brièvement le contenu du coffre et lancer la fusée avec le compte du CEO.
+
+Interface web pour se connecter à son compte :
+![image](https://github.com/user-attachments/assets/ddf20ca2-303d-4c44-876f-36292dca903b)
+
+Pour lancer la fusée avec le code de lancement :
+![image](https://github.com/user-attachments/assets/c5570035-c622-4953-bf38-d9c258bb0bcf)
+
+Animation de lancement de la fusée après avoir mis le bon code (Celui donné dans le fichier `code lancement ariane 6`)
+![image](https://github.com/user-attachments/assets/50fe0511-38f9-47f0-a487-4e45b8cccae6)
 
 ---
 
@@ -179,8 +188,84 @@ Il est nécessaire de modifier le fichier `/etc/hosts` en y ajoutant la ligne su
 ```bash
 sudo sh -c 'echo "127.0.0.1 escape-ceo-csg.fr" >> /etc/hosts'
 ```
+Cette ligne est nécessaire pour que le script BASH `launchRocket.sh` puisse ouvrir le navigateur sur cette adresse.
 
 ### *_Comment le code C++ vérifie la validité du code ?_*
 Le code C++ vérifie toutes les 4.5 secondes si le code est bon, et s'il est bon il ouvre le coffre, sinon il reste fermé.
+La fonction exacte qui vérifie la validité du code est celle-ci :
+```c++
+// Fonction pour lire le code IR depuis un fichier
+bool isValidCode(const string &filePath, const string &validCode) {
+  ifstream inputFile(filePath);
+  string fileCode;
 
-Cette ligne est nécessaire pour que le script BASH `launchRocket.sh` puisse ouvrir le navigateur sur cette adresse.
+  if (inputFile.is_open()) {
+    getline(inputFile, fileCode);  // Lit la première ligne du fichier
+    inputFile.close();
+
+    // Compare le code du fichier avec le code valide
+    return fileCode == validCode;
+  } else {
+    cerr << "Erreur d'ouverture du fichier!" << endl;
+    return false;
+  }
+}
+```
+Et puis dans la partie principale du code on la définit, et précise le chemin du fichier à lire (ou juste le nom du fichier s'il est juste là) et le code valide.
+```c++
+int main() {
+  // Le code IR valide, tu peux le modifier en fonction de ton besoin
+  string validCode = "1941";
+  string filePath = "codeIR.txt";
+
+  // Vérifie si le code dans le fichier est valide
+  bool codeValid = isValidCode(filePath, validCode);
+
+  // Main loop
+  while (true) {
+    // Vérifie si le code est valide à chaque itération
+    codeValid = isValidCode(filePath, validCode);
+
+    clearScreen();
+
+    drawStickmanOpeningChest(codeValid);
+
+    // Si le code est valide, on demande à l'utilisateur s'il veut fuir ou pas
+    if (codeValid) {
+      // system("bash startAlarm.sh");
+      cout << Utils::setTextColor(2) << "L'alarme s'est déclenchée, la sécurité arrive dans 45 secondes !" << Utils::resetTextColor() << "\n";
+      string choice = "";
+      cout << "Voulez-vous fuir ? (y/n) : ";
+      cin >> choice;
+
+      if (choice == "yes" || choice == "Yes" || choice == "Y" || choice == "y") {
+        Utils::clearScreen();
+        cout << "Vous vous mettez à courir, mais on vous attrape... Vous pensiez quoi ? Vous voler une base spatiale..." << "\nTHE END";
+        break;
+      } else if (choice == "no" || choice == "No" || choice == "N" || choice == "n") {
+        // Sinon, on lance le script launchRocket.sh
+        system("bash launchRocket.sh");
+        break;
+      } else {
+        cout << "Stressé...? Normale..." << "\n";
+      }
+    }
+
+    // Attente de 12 secondes avant la prochaine itération
+    Utils::delay(4500);
+  }
+
+  return 0;
+}
+```
+
+### *_Comment lancer le programme C++ ?_*
+Donner les droits d'exécutions :
+```bash
+chmod u+x compile
+```
+Puis, il suffit simplement de faire :
+```bash
+./compile
+```
+Pour lancer le programme C++.
