@@ -47,17 +47,17 @@ Ils sont entrés par effraction dans la base spatiale, ils doivent retrouver le 
 - Fuir avec le contenu du coffre.
 
 Ou bien :
-- Ne pas fuir, lancer la fusée, et partir avec le contenu du coffre.
+- Ne pas fuir, lancer la fusée et partir avec le contenu du coffre.
 
 ### Fuir
-Sinon, s'ils décidents de fuir, ils se feront attraper. Ils essayent de combrioler une base spatiale... On reste réaliste, on n'est pas dans un film.
+Sinon, s'ils décident de fuir, ils se feront attraper. Ils essaient de cambrioler une base spatiale... On reste réaliste, on n'est pas dans un film.
 
 ### Ne pas fuir
 S'ils décident de lancer la fusée grâce au code de lancement trouvé dans le coffre, ils pourront lancer la fusée, et partir avec tout le contenu du coffre.
 
 ---
 > [!IMPORTANT]
-> _Le CEO de l'entreprise est un passionné d'histoire, en particulier de la Seconde Guerre mondiale et de l'attaque de Pearl Harbor. Il a une collection précieuse d'objets historiques, dont un coffre-fort sécurisé par un code faisant hommage à cette évenement historique. 
+> _Le CEO de l'entreprise est un passionné d'histoire, en particulier de la Seconde Guerre mondiale et de l'attaque de Pearl Harbor. Il a une collection précieuse d'objets historiques, dont un coffre-fort sécurisé par un code faisant hommage à cet événement historique. 
 Le code du coffre est l'année de l'attaque de Pearl Harbor, soit 1941._
 
 ---
@@ -68,16 +68,16 @@ Le code du coffre est l'année de l'attaque de Pearl Harbor, soit 1941._
 ...
 
 ### Challenge 2 : Infrarouge
-Avec la télécommande infrarouge, ils devront débloquer le coffre du CEO. Dans ce coffre ils trouveront le code de lancement de Ariane 6, l'identifiant et code du compte bancaire du CEO, login et mot de passe à son compte, une photo de famille, des documents (il)légaux, de l'or, et une liste de ses collaborateurs. Tout ce qu'il faut pour usurper le CEO (si nos participants/participantes se sentent... Malveillants/Malveillantes), ne serait-ce que pour quelques heures, voire quelques minutes/secondes. Largement suffisant pour causer des dégats conséquents à sa réputation, son entreprise, et notamment sa vie.
+Avec la télécommande infrarouge, ils devront débloquer le coffre du CEO. Dans ce coffre ils trouveront le code de lancement d'Ariane 6, l'identifiant et code du compte bancaire du CEO, login et mot de passe à son compte, une photo de famille, des documents (il)légaux, de l'or, et une liste de ses collaborateurs. Tout ce qu'il faut pour usurper le CEO (si nos participants/participantes se sentent... Malveillants/Malveillantes), ne serait-ce que pour quelques heures, voire quelques minutes/secondes. Largement suffisant pour causer des dégâts conséquents à sa réputation, son entreprise, et notamment sa vie.
 
 ### Suite challenge 2 pour conclure l'escape game
-Une fois le coffre du CEO ouvert, une alarme se déclenche et ils devront faire fasse à un choix :
+Une fois le coffre du CEO ouvert, une alarme se déclenche et ils devront faire face à un choix :
 - Fuir. Mais ils se feront attraper car c'est un lieu hautement sécurisé. Ils ont réussi à rentrer mais n'arriveront jamais à s'échapper.
 
 Ou bien :
 - Se connecter sur le compte du CEO, et lancer Ariane 6.
 
-S'ils décident de ne pas fuir et de lancer la fusée avec le code de lancement, un autre script BASH sera exécuté par le biais du code C++. Ce script BASH va leur ouvrir le navigateur par défaut à l'adresse `escape-ceo-csg.fr/ceo-account.html` pour pouvoir se connecter au compte du CEO, et 0.5 secondes plus tard, on affiche le contenu du coffre en ouvrant *Files Manager* à un endroit "caché" du système Linux, où ils pourront consulté brièvement le contenu du coffre et lancer la fusée avec le compte du CEO.
+S'ils décident de ne pas fuir et de lancer la fusée avec le code de lancement, un autre script BASH sera exécuté par le biais du code C++. Ce script BASH va leur ouvrir le navigateur par défaut à l'adresse `escape-ceo-csg.fr/ceo-account.html` pour pouvoir se connecter au compte du CEO, et 0.5 secondes plus tard, on affiche le contenu du coffre en ouvrant *Files Manager* à un endroit "caché" du système Linux, où ils pourront consulter brièvement le contenu du coffre et lancer la fusée avec le compte du CEO.
 
 ---
 
@@ -97,7 +97,7 @@ Ensuite, on se rend dans le fichier `/boot/config.txt` avec la commande `sudo na
 dtoverlay=gpio-ir,gpio_pin=18
 ```
 
-Sauvegarder après avoir modifier (`CTRL + X, puis Y et ENTER`).
+Sauvegarder après avoir modifié (`CTRL + X, puis Y et ENTER`).
 
 Puis redémarrer le Raspberry :
 ```bash
@@ -194,7 +194,7 @@ L'utilisateur doit saisir un code, puis appuyer sur le bouton ***OK*** de la té
 **_Le fichier `codeIR.txt` est effacé toutes les 15 secondes. Ce délai est réinitialisé chaque fois qu'un nouveau code est enregistré dans les 15 secondes qui suivent le dernier enregistrement._**
 
 > [!NOTE]
-> Le serveur MQTT marche pas ? Sans doute dû aux adresses IP configurées en statique dans les codes `mqttClient.py` et `mqttServer.py`. Il faudra remplacer l'adresse IP dans ces 2 codes Python par l'adresse IP de votre Raspberry.
+> Le serveur MQTT ne marche pas ? Sans doute dû aux adresses IP configurées en statique dans les codes `mqttClient.py` et `mqttServer.py`. Il faudra remplacer l'adresse IP dans ces 2 codes Python par l'adresse IP de votre Raspberry.
 
 ### *L'adresse **escape-ceo-csg.fr** n'existe pas !*
 Il est nécessaire de modifier le fichier `/etc/hosts` en y ajoutant la ligne suivante :
@@ -224,7 +224,7 @@ bool isValidCode(const string &filePath, const string &validCode) {
   }
 }
 ```
-Et puis dans la partie principale du code on la définit, et précise le chemin du fichier à lire (ou juste le nom du fichier s'il est juste là) et le code valide.
+Et puis, dans la partie principale du code on la définit, et précise le chemin du fichier à lire (ou juste le nom du fichier s'il est juste là) et le code valide.
 ```c++
 int main() {
   // Le code IR valide, tu peux le modifier en fonction de ton besoin
@@ -273,7 +273,7 @@ int main() {
 ```
 
 ### *_Comment lancer le programme C++ ?_*
-Donner les droits d'exécutions :
+Donner les droits d'exécution :
 ```bash
 chmod u+x compile
 ```
@@ -284,18 +284,18 @@ Puis, il suffit simplement de faire :
 Pour lancer le programme C++.
 
 ### Importer la base de donnée `escapegame` dans mariadb
-Il faudra d'abord importer la base de donnée pour pouvoir se connecter au compte du CEO, mais aussi pour vérifier le code de lancement
+Il faudra d'abord importer la base de données pour pouvoir se connecter au compte du CEO, mais aussi pour vérifier le code de lancement
 
 > [!IMPORTANT]
-> Tout est en clair dans la base de donnée. Rien n'est hashé ou encrypté par une clé.
+> Tout est en clair dans la base de données. Rien n'est hashé ou encrypté par une clé.
 
-Pour importer la base de donnée il suffit de taper la commande suivante dans le terminal, à l'endroit `escape-game/db/escapegame.sql`
+Pour importer la base de données il suffit de taper la commande suivante dans le terminal, à l'endroit `escape-game/db/escapegame.sql`
 ```bash
 cat escapegame.sql | mariadb -u <username> -p
 ```
 
 Lit le fichier `escapegame.sql` et envoie son contenu à MariaDB, où il est exécuté en tant qu'utilisateur `<username>`, avec une demande de saisie du mot de passe.
-Remplacer `<username>` par le nom utilisateur créée dans votre base de donnée. Si c'est `root` alors :
+Remplacer `<username>` par le nom utilisateur créé dans votre base de données. Si c'est `root` alors :
 ```bash
 cat escapegame.sql | mariadb -u root -p
 ```
@@ -351,7 +351,7 @@ Configuration terminée avec succès !
 > Pour ce qui est d'importer la base de données, il serait préférable que vous le fassiez soit en graphique depuis `phpmyadmin`, soit en ligne de commande, comme vu précédemment.
 
 ### Lancer `setup.sh`
-Donner les drois d'exécutions au fichier BASH :
+Donner les droits d'exécution au fichier BASH :
 ```bash
 chmod +x setup.bash
 ```
