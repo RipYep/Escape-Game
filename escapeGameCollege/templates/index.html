@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escape Game : SPACE HEIST</title>
+
+    <!-- Inclusion de MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- CSS File -->
+    <link rel="stylesheet" href="./../static/style.css" media="screen">
+    
+    <!-- JS File -->
+    <script src="./../static/test.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Escape Game : Résolvez les Énigmes pour arrêter l'alarme !!</h1>
+        <div id="timer">5:00</div>
+        <div id="questions">
+            <!-- Énigme 1 -->
+            <div class="enigme">
+                <p>Énigme 1 : Quel est la fusée la plus utilisée sur la base spatiale ?</p>
+                <input type="text" id="answer1" placeholder="Réponse">
+            </div>
+            <!-- Énigme 2 -->
+            <div class="enigme">
+                <p>Énigme 2 : Qui est le Directeur Général du CSG ?</p>
+                <input type="text" id="answer2" placeholder="ex : Nom Prénom">
+            </div>
+            <!-- Énigme 3 -->
+            <div class="enigme">
+                <p>Énigme 3 : Quel est la planète la plus proche du soleil ?</p>
+                <input type="text" id="answer3" placeholder="ex : Jupiter">
+            </div>
+            <!-- Énigme 4 -->
+            <div class="enigme">
+                <p>Énigme 4 : Notre planète est le numéro combien dans le système solaire ?</p>
+                <input type="text" id="answer4" placeholder="ex : n°5">
+            </div>
+        </div>
+        <button id="submit">Valider les Réponses</button>
+        <p id="result"></p>
+        <p id="message"></p> <!-- Ajouté pour afficher les messages -->
+    </div>
+</body>
+</html>
