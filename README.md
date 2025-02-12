@@ -65,7 +65,19 @@ Le code du coffre est l'année de l'attaque de Pearl Harbor, soit 1941._
 ## Challenges
 
 ### Challenge 1
-...
+En entrant sur le site de la base spaciale, une alarme silencieuse se déclenche. Pour arrêter l'alarme et accéder au bureau du directeur, les participants ont 5 minutes pour désactiver cet alarme. S'ils n'y parviennent pas, une alerte sera envoyé à la gendarmerie et les participants finissent en prison.
+
+Pour arrêter l'alarme, les participants auront accès à une interface web en entrant dans la pièce pour répondre a certaines questions :
+
+![image](https://github.com/user-attachments/assets/6e84c653-86b3-4efb-9781-6f9f50cc316b)
+
+Pour réaliser ce Challenge, il faut configurer un serveur flask. 
+Prérequis : 
+ - sudo apt update && sudo apt upgrade
+ - sudo apt install pythton3.12-pip
+ - pip3 install flask
+
+
 
 ### Challenge 2 : Infrarouge
 Avec la télécommande infrarouge, ils devront débloquer le coffre du CEO. Dans ce coffre ils trouveront le code de lancement d'Ariane 6, l'identifiant et code du compte bancaire du CEO, login et mot de passe à son compte, une photo de famille, des documents (il)légaux, de l'or, et une liste de ses collaborateurs. Tout ce qu'il faut pour usurper le CEO (si nos participants/participantes se sentent... Malveillants/Malveillantes), ne serait-ce que pour quelques heures, voire quelques minutes/secondes. Largement suffisant pour causer des dégâts conséquents à sa réputation, son entreprise, et notamment sa vie.
@@ -151,7 +163,10 @@ sudo ir-keytable -c -w /etc/rc_keymaps/customRemote.toml
 ## Solutions des challenges
 
 ### Solution challenge 1
-...
+Les réponses aux questions sont les suvantes :
+
+![image](https://github.com/user-attachments/assets/5eb81ac7-09b0-404b-a01d-15aedb930b71)
+
 
 ### Solution challenge 2
 Le code pour débloquer le coffre est l'année de l'attaque de Pearl Harbor en 1941. Une fois ce code entré, ils déverrouillent le coffre et doivent ensuite choisir entre fuir avec son contenu ou rester et lancer la fusée en se connectant au compte du CEO avec son identifiant de connexion.
