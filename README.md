@@ -64,19 +64,40 @@ Le code du coffre est l'année de l'attaque de Pearl Harbor, soit 1941._
 
 ## Challenges
 
-### Challenge 1
-En entrant sur le site de la base spaciale, une alarme silencieuse se déclenche. Pour arrêter l'alarme et accéder au bureau du directeur, les participants ont 5 minutes pour désactiver cet alarme. S'ils n'y parviennent pas, une alerte sera envoyé à la gendarmerie et les participants finissent en prison.
+### Challenge 1 : Désactivation de l'alarme à la base spatiale
 
-Pour arrêter l'alarme, les participants auront accès à une interface web en entrant dans la pièce pour répondre a certaines questions :
+
+À l'entrée sur le site de la base spatiale, une alarme silencieuse se déclenche automatiquement. Pour arrêter l'alarme et accéder au bureau du directeur, les participants disposent de 5 minutes pour désactiver l'alarme. Si le temps imparti est dépassé, une alerte sera envoyée à la gendarmerie et les participants risquent de finir en prison !
+
+**Objectif :**
+Les participants devront désactiver l'alarme en répondant correctement à une série de questions à travers une interface web accessible dans la salle. 
 
 ![image](https://github.com/user-attachments/assets/6e84c653-86b3-4efb-9781-6f9f50cc316b)
 
-Pour réaliser ce Challenge, il faut configurer un serveur flask. 
-Prérequis : 
- - sudo apt update && sudo apt upgrade
- - sudo apt install pythton3.12-pip
- - pip3 install flask
+**Prérequis techniques pour réaliser ce challenge :**
 
+1. Mettre à jour le système :
+    ```bash
+    sudo apt update && sudo apt upgrade
+    ```
+
+2. Installer Python et `pip` :
+    ```bash
+    sudo apt install python3.12-pip
+    ```
+
+3. Installer Flask :
+    ```bash
+    pip3 install flask
+    ```
+
+
+
+**Déploiement du serveur :**
+
+Pour mettre en place ce challenge, vous devrez télécharger le dossier *escapeGameCollege*.
+
+Assurez-vous que tout fonctionne correctement avant de lancer le challenge !
 
 
 ### Challenge 2 : Infrarouge
